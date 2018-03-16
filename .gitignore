@@ -1,0 +1,14 @@
+# jetbrains
+.idea/
+
+# vs code
+.vscode/
+
+# mac
+.DS_Store
+
+# kde
+.directory
+
+# npm
+node_modules/
