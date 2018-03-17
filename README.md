@@ -32,6 +32,20 @@ Sample response:
 
 ### OS
 
+Sample response:
+
+```json
+{
+  "arch": "x64",
+  "platform": "win32",
+  "release": "10.0.16299",
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
+
 ### CPU
 
 Sample response:
@@ -50,6 +64,26 @@ Sample response:
 ```
 
 ### Memory
+
+Sample response:
+
+```json
+{
+  "memory": {
+    "total": 16333,
+    "used": 8894,
+    "free": 7207,
+    "shared": 17,
+    "buffers": 230,
+    "cached": 7301,
+    "usable": 14739
+  },
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
 
 ### Storage
 
