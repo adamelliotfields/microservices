@@ -1,9 +1,9 @@
 const doShutdown = require('./doShutdown');
 const getCpuUsage = require('./getCpuUsage');
-const isProduction = require('./isProduction');
+const getProduction = require('./getProduction');
 
 module.exports = {
   doShutdown,
   getCpuUsage,
-  isProduction
+  getProduction
 };
