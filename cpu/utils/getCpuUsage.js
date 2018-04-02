@@ -3,9 +3,11 @@ const { cpuUsage } = require('os-utils');
 // Return a Promise so it can be awaited
 // Takes 1 second to return
 const getCpuUsage = () => (
-  // TODO: Add reject
   new Promise(resolve => {
-    cpuUsage(usage => resolve(parseInt((usage * 100).toFixed(0))));
+    cpuUsage(usage => resolve({
+      used: parseInt((usage * 100).toFixed(0)),
+      free: parseInt(((1 - usage) * 100).toFixed(0))
+    }));
   })
 );
 
