@@ -53,9 +53,9 @@ Sample response:
 ```json
 {
   "model": "Intel(R) Core(TM) i7-6600U CPU @ 2.60GHz",
-  "cores": 4,
-  "usage": "32%",
-  "free": "68%",
+  "cores": 8,
+  "used": 32,
+  "free": 68,
   "meta": {
     "hostname": "adamelliotfields",
     "ip": "10.0.1.8"
