@@ -16,9 +16,16 @@ const server = micro((request, response) => {
     try {
       if (error) throw error;
 
-      const usage = await getCpuUsage();
+      const { used, free } = await getCpuUsage();
 
-      const data = new Data(os, usage, ip);
+      const { model } = os.cpus()[0];
+      const cores = os.cpus().length;
+      const meta = {
+        hostname: os.hostname(),
+        address: ip.address()
+      };
+
+      const data = new Data(model, cores, used, free, meta);
 
       micro.send(response, 200, data);
     } catch (error) {
