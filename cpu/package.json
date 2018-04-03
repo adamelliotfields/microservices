@@ -1,5 +1,5 @@
 {
-  "name": "cpu",
+  "name": "@system-microservices/cpu",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A microservice for sending CPU information over HTTP.",
