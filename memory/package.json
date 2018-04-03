@@ -1,18 +1,25 @@
 {
-  "name": "memory",
+  "name": "@system-microservices/memory",
   "version": "1.0.0",
-  "description": "",
+  "license": "MIT",
+  "description": "A microservice for sending system memory information over HTTP.",
+  "author": "Adam Fields (https://github.com/adamelliotfields)",
+  "repository": "github:adamelliotfields/system-microservices",
+  "homepage": "https://github.com/adamelliotfields/system-microservices#readme",
+  "bugs": "https://github.com/adamelliotfields/system-microservices/issues",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "free-memory": "^1.0.0",
+    "boom": "^7.2.0",
     "ip": "^1.1.5",
     "micro": "^9.1.4",
     "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:prod": "cross-env NODE_ENV=production node index.js"
   }
 }
