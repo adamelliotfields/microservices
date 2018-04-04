@@ -1,12 +1,12 @@
 {
-  "name": "@system-microservices/cpu",
+  "name": "@adamelliotfields/cpu",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A microservice for sending CPU information over HTTP.",
   "author": "Adam Fields (https://github.com/adamelliotfields)",
-  "repository": "github:adamelliotfields/system-microservices",
-  "homepage": "https://github.com/adamelliotfields/system-microservices#readme",
-  "bugs": "https://github.com/adamelliotfields/system-microservices/issues",
+  "repository": "github:adamelliotfields/microservices",
+  "homepage": "https://github.com/adamelliotfields/microservices#readme",
+  "bugs": "https://github.com/adamelliotfields/microservices/issues",
   "main": "index.js",
   "dependencies": {
     "boom": "^7.2.0",
