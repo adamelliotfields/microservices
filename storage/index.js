@@ -1,13 +1,22 @@
-const disk = require('diskusage');
-const { platform } = require('os');
+const server = require('./server');
+const { getProduction } = require('./utils');
+const { handleShutdown } = require('./handlers');
 
-const path = platform() === 'win32' ? 'c:' : '/';
+const production = getProduction();
 
-disk.check(path, (error, info) => {
-  if (error) console.error(error);
+const PORT = process.env.PORT || (production ? 80 : 8080);
+const HOST = production ? '0.0.0.0' : 'localhost';
 
-  // Same as free
-  // console.log('available:', info.available);
-  console.log('free:', info.free);
-  console.log('total', info.total);
+server.listen(PORT, HOST, () => {
+  console.info(`Server listening at http://${HOST}:${PORT} ...`);
+});
+
+// Handle Ctrl-C
+process.on('SIGINT', () => {
+  server.close(handleShutdown);
+});
+
+// Docker sends SIGTERM followed by SIGKILL after 10 seconds
+process.on('SIGTERM', () => {
+  server.close(handleShutdown);
 });

@@ -1,18 +1,26 @@
 {
-  "name": "storage",
+  "name": "@adamelliotfields/storage",
   "version": "1.0.0",
-  "description": "",
+  "license": "MIT",
+  "description": "A microservice for sending disk usage information over HTTP.",
+  "author": "Adam Fields (https://github.com/adamelliotfields)",
+  "repository": "github:adamelliotfields/microservices",
+  "homepage": "https://github.com/adamelliotfields/microservices#readme",
+  "bugs": "https://github.com/adamelliotfields/microservices/issues",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "boom": "^7.2.0",
     "diskusage": "^0.2.4",
     "ip": "^1.1.5",
     "micro": "^9.1.4",
     "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:prod": "cross-env NODE_ENV=production node index.js"
   }
 }
