@@ -1,54 +1,21 @@
-# System Microservices
-> :computer: A collection of microservices for fetching host information.
+# Microservices
+> :microscope: A collection of microservices.
 
-These are a collection of tiny web applications powered by [Micro](https://github.com/zeit/micro). I
-created them primarily for practice setting up reverse proxies like Nginx and HAProxy; cloud load
-balancers; service discovery with Consul; and container orchestration with Docker Swarm and
-Kubernetes.
+These are a collection of tiny web applications powered by [Micro](https://github.com/zeit/micro).
 
-All services provide the hostname and IP address, so you can determine which host you were load
-balanced to when running in a distributed environment.
+I made them to practice container orchestration techniques with Docker Swarm and Kubernetes, and
+needed something more exciting than [`hello`](https://hub.docker.com/r/kelseyhightower/hello) and
+[`whoami`](https://hub.docker.com/r/jwilder/whoami).
 
-Morgan is used for logging to `stdout`.
+In addition to fascinating data like the current time and how many CPU cores you have, all services
+provide the hostname and IP address, so you can determine which host you were load balanced to when
+running replicas in a cluster.
 
 ## Services
 
-### Time
-
-Sample response:
-
-```json
-{
-  "current": "2018-03-16T17:23:09.456-04:00",
-  "offset": "-4:00",
-  "uptime": "9m 43s",
-  "zone": "America/New_York",
-  "meta": {
-    "hostname": "adamelliotfields",
-    "ip": "10.0.1.8"
-  }
-}
-```
-
-### OS
-
-Sample response:
-
-```json
-{
-  "arch": "x64",
-  "platform": "win32",
-  "release": "10.0.16299",
-  "meta": {
-    "hostname": "adamelliotfields",
-    "ip": "10.0.1.8"
-  }
-}
-```
-
 ### CPU
 
-Sample response:
+**`GET /`**
 
 ```json
 {
@@ -65,19 +32,61 @@ Sample response:
 
 ### Memory
 
-Sample response:
+**`GET /`**
 
 ```json
 {
-  "memory": {
-    "total": 16333,
-    "used": 8894,
-    "free": 7207,
-    "shared": 17,
-    "buffers": 230,
-    "cached": 7301,
-    "usable": 14739
-  },
+  "free": 7207,
+  "used": 9126,
+  "total": 16333,
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
+
+### Network
+
+**`GET /`**
+
+```json
+{
+  "lo": [
+    {
+      "address": "127.0.0.1",
+      "netmask": "255.0.0.0",
+      "family": "IPv4",
+      "mac": "00:00:00:00:00:00",
+      "internal": true,
+      "cidr": "127.0.0.1/8"
+    },
+    {
+      "address": "::1",
+      "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+      "family": "IPv6",
+      "mac": "00:00:00:00:00:00",
+      "scopeid": 0,
+      "internal": true,
+      "cidr": "::1/128"
+    }
+  ],
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
+
+### OS
+
+**`GET /`**
+
+```json
+{
+  "arch": "x64",
+  "platform": "win32",
+  "release": "10.0.16299",
   "meta": {
     "hostname": "adamelliotfields",
     "ip": "10.0.1.8"
@@ -87,8 +96,33 @@ Sample response:
 
 ### Storage
 
-### Network
+**`GET /`**
 
-### Processes
+```json
+{
+  "free": 97533,
+  "used": 126379,
+  "total": 223912,
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
 
-### Environment
+### Time
+
+**`GET /`**
+
+```json
+{
+  "current": "2018-03-16T17:23:09.456-04:00",
+  "offset": "-4:00",
+  "uptime": "9m 43s",
+  "zone": "America/New_York",
+  "meta": {
+    "hostname": "adamelliotfields",
+    "ip": "10.0.1.8"
+  }
+}
+```
