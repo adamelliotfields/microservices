@@ -20,12 +20,13 @@ const server = micro((request, response) => {
       //   so it is not representative of available memory
       const free = parseInt((os.freemem() / (1024 * 1024)).toFixed(0));
       const total = parseInt((os.totalmem() / (1024 * 1024)).toFixed(0));
+      const used = total - free;
       const meta = {
         hostname: os.hostname(),
         ip: ip.address()
       };
 
-      const data = new Data(free, total, meta);
+      const data = new Data(free, used, total, meta);
 
       micro.send(response, 200, data);
     } catch (error) {
