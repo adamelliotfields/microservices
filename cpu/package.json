@@ -20,13 +20,19 @@
     "cross-env": "^5.1.4",
     "got": "^8.3.0",
     "nodemon": "^1.17.3",
+    "npm-run-all": "^4.1.2",
     "nyc": "^11.6.0",
+    "serve": "^6.5.3",
     "test-listen": "^1.1.0"
   },
   "scripts": {
     "start": "nodemon index.js",
     "start:prod": "cross-env NODE_ENV=production node index.js",
     "test": "ava --verbose",
-    "test:coverage": "nyc --reporter=text --reporter=html ava --verbose"
+    "test:coverage": "nyc --reporter=text ava --verbose",
+    "report": "run-s report:html report:serve",
+    "report:text": "nyc report --reporter=text",
+    "report:html": "nyc report --reporter=html",
+    "report:serve": "serve coverage --open"
   }
 }
