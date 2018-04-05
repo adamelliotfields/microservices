@@ -11,6 +11,7 @@
 .directory
 
 # npm
+npm-debug.log*
 node_modules/
 
 # nyc
