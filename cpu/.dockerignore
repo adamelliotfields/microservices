@@ -1,13 +1,28 @@
+# jetbrains
 .idea/
+
+# vs code
 .vscode/
 
-node_modules/
-
-.directory
-.dockerignore
+# mac
 .DS_Store
 
+# kde
+.directory
+
+# npm
+node_modules/
+npm-debug.log*
+
+# docker
+.dockerignore
 docker-compose.yml
 Dockerfile
-npm-debug.log*
+
+# git
 README.md
+
+# test
+__tests__/
+.nyc_output/
+coverage/
