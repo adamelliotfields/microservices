@@ -4,7 +4,7 @@ const os = require('os');
 const ip = require('ip');
 
 const { Data } = require('../models');
-const { handleError } = require('../handlers');
+const { handleError, handleNotFound } = require('../handlers');
 const { getCpuUsage, getProduction } = require('../utils');
 
 const production = getProduction();
@@ -13,6 +13,11 @@ const LOG_FORMAT = production ? 'combined' : 'dev';
 const server = micro((request, response) => {
   // https://github.com/expressjs/morgan#vanilla-http-server
   morgan(LOG_FORMAT)(request, response, async error => {
+    if (request.url !== '' && request.url !== '/') {
+      handleNotFound(micro, response);
+      return;
+    }
+
     try {
       if (error) throw error;
 
