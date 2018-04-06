@@ -1,5 +1,6 @@
 const server = require('./server');
-const { doShutdown, getProduction } = require('./utils');
+const { getProduction } = require('./utils');
+const { handleShutdown } = require('./handlers');
 
 const production = getProduction();
 
@@ -12,10 +13,10 @@ server.listen(PORT, HOST, () => {
 
 // Handle Ctrl-C
 process.on('SIGINT', () => {
-  server.close(doShutdown);
+  server.close(handleShutdown);
 });
 
 // Docker sends SIGTERM followed by SIGKILL after 10 seconds
 process.on('SIGTERM', () => {
-  server.close(doShutdown);
+  server.close(handleShutdown);
 });
