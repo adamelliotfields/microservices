@@ -5,7 +5,7 @@ FROM node:8.11.0-alpine as build
 WORKDIR /usr/src/app
 COPY . .
 RUN apk update && apk add python build-base
-RUN npm install --production --unsafe-perm
+RUN npm install --production --no-package-lock --unsafe-perm
 
 FROM node:8.11.0-alpine
 WORKDIR /usr/src/app

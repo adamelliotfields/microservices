@@ -2,7 +2,7 @@
 > _A microservice for sending disk usage information over HTTP._
 
 ### Supported tags and respective `Dockerfile` links
-  - `latest` (_[Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/storage/Dockerfile)_)
+  - `latest` ([Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/packages/storage/Dockerfile))
 
 ### About
 

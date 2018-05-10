@@ -1,5 +1,6 @@
 {
-  "name": "@adamelliotfields/storage",
+  "private": true,
+  "name": "@microservices/storage",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A microservice for sending disk usage information over HTTP.",
@@ -21,6 +22,9 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js"
+    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "docker:build": "docker build --tag adamelliotfields/storage:latest .",
+    "docker:run": "docker run --name storage --publish 127.0.0.1:80:80 --detach adamelliotfields/storage:latest",
+    "docker:push": "docker push adamelliotfields/storage:latest"
   }
 }
