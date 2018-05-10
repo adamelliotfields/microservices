@@ -2,7 +2,7 @@
 > _A microservice for sending CPU information over HTTP._
 
 ### Supported tags and respective `Dockerfile` links
-  - `latest` (_[Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/cpu/Dockerfile)_)
+  - `latest` ([Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/packages/cpu/Dockerfile))
 
 ### About
 

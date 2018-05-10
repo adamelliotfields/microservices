@@ -6,7 +6,7 @@ COPY . .
 
 ENV NODE_ENV production
 
-RUN npm install --production --unsafe-perm
+RUN npm install --production --no-package-lock
 
 EXPOSE 80
 

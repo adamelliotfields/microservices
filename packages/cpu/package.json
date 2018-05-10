@@ -1,5 +1,6 @@
 {
-  "name": "@adamelliotfields/cpu",
+  "private": true,
+  "name": "@microservices/cpu",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A microservice for sending CPU information over HTTP.",
@@ -16,24 +17,14 @@
     "os-utils": "0.0.14"
   },
   "devDependencies": {
-    "ava": "^1.0.0-beta.3",
     "cross-env": "^5.1.4",
-    "got": "^8.3.0",
-    "kind-of": "^6.0.2",
-    "nodemon": "^1.17.3",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^11.6.0",
-    "serve": "^6.5.3",
-    "test-listen": "^1.1.0"
+    "nodemon": "^1.17.3"
   },
   "scripts": {
     "start": "nodemon index.js",
     "start:prod": "cross-env NODE_ENV=production node index.js",
-    "test": "ava --verbose",
-    "test:coverage": "nyc --reporter=text ava --verbose",
-    "report": "run-s report:html report:serve",
-    "report:text": "nyc report --reporter=text",
-    "report:html": "nyc report --reporter=html",
-    "report:serve": "serve coverage --open"
+    "docker:build": "docker build --tag adamelliotfields/cpu:latest .",
+    "docker:run": "docker run --name cpu --publish 127.0.0.1:80:80 --detach adamelliotfields/cpu:latest",
+    "docker:push": "docker push adamelliotfields/cpu:latest"
   }
 }

@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+
+node_modules/
+
+.directory
+.dockerignore
+.DS_Store
+
+docker-compose.yml
+Dockerfile
+npm-debug.log*
+README.md
