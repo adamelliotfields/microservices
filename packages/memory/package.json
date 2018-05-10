@@ -1,5 +1,6 @@
 {
-  "name": "@adamelliotfields/memory",
+  "private": true,
+  "name": "@microservices/memory",
   "version": "1.0.0",
   "license": "MIT",
   "description": "A microservice for sending system memory information over HTTP.",
@@ -20,6 +21,9 @@
   },
   "scripts": {
     "start": "nodemon index.js",
-    "start:prod": "cross-env NODE_ENV=production node index.js"
+    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "docker:build": "docker build --tag adamelliotfields/memory:latest .",
+    "docker:run": "docker run --name memory --publish 127.0.0.1:80:80 --detach adamelliotfields/memory:latest",
+    "docker:push": "docker push adamelliotfields/memory:latest"
   }
 }

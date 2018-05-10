@@ -2,7 +2,7 @@
 > _A microservice for sending system memory information over HTTP._
 
 ### Supported tags and respective `Dockerfile` links
-  - `latest` (_[Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/memory/Dockerfile)_)
+  - `latest` ([Dockerfile](https://github.com/adamelliotfields/microservices/blob/master/packages/memory/Dockerfile))
 
 ### About
 
