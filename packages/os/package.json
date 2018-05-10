@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@microservices/os",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "A microservice for sending OS information over HTTP.",
+  "author": "Adam Fields (https://github.com/adamelliotfields)",
+  "repository": "github:adamelliotfields/microservices",
+  "homepage": "https://github.com/adamelliotfields/microservices#readme",
+  "bugs": "https://github.com/adamelliotfields/microservices/issues",
+  "main": "index.js",
+  "dependencies": {
+    "boom": "^7.2.0",
+    "ip": "^1.1.5",
+    "micro": "^9.1.4",
+    "morgan": "^1.9.0",
+    "pretty-ms": "^3.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "nodemon": "^1.17.3"
+  },
+  "scripts": {
+    "start": "nodemon index.js",
+    "start:prod": "cross-env NODE_ENV=production node index.js",
+    "docker:build": "docker build --tag adamelliotfields/os:latest .",
+    "docker:run": "docker run --name os --publish 127.0.0.1:80:80 --detach adamelliotfields/os:latest",
+    "docker:push": "docker push adamelliotfields/os:latest"
+  }
+}
